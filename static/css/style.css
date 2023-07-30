@@ -461,6 +461,7 @@ input:-webkit-autofill:active {
 }
 
 .post-container {
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <title>YSWPystagram</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'splide/splide.css' %}">
+    <script src="{% static 'splide/splide.js' %}"></script>
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <div id="wrap">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
