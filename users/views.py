@@ -6,7 +6,7 @@ from users.models import User
 
 def login_view(request):
     if request.user.is_authenticated:
-        return render(request, "/posts/feeds/")
+        return redirect("posts:feeds")
 
     if request.method == "POST":
         form = LoginForm(data=request.POST)
@@ -19,7 +19,7 @@ def login_view(request):
 
             if user:
                 login(request, user)
-                return redirect("/posts/feeds/")
+                return redirect("posts:feeds")
 
             else:
                 form.add_error(None, "입력한 회원의 정보가 없습니다")
@@ -33,8 +33,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
-
-    return redirect("/users/login")
+    return redirect("users:login")
 
 def signup(request):
     if request.method == "POST":
@@ -42,7 +41,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("/posts/feeds/")
+            return redirect("posts:feeds")
     else:
         form = SignupForm()
 

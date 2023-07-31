@@ -2,9 +2,10 @@
 {% block content %}
     <nav>
         <h1>
-            <a href="/posts/feeds/">Pystagram</a>
+            <a href="{% url 'posts:feeds' %}">Pystagram</a>
         </h1>
-        <a href="/users/logout/">Logout</a>
+        <a href="{% url 'posts:post_add' %}">Add post</a>
+        <a href="{% url 'users:logout' %}">Logout</a>
     </nav>
     <div id="feeds" class="post-container">
         {% for post in posts %}
@@ -42,7 +43,7 @@
                                 <span>{{ comment.user.username }}</span>
                                 <span>{{ comment.content }}</span>
                                 {% if user == comment.user %}
-                                    <form method="POST" action="/posts/comment_delete/{{ comment.id }}/">
+                                    <form method="POST" action="{% url 'posts:comment_delete' comment_id=comment.id %}">
                                         {% csrf_token %}
                                         <button type="submit">삭제</button>
                                     </form>
@@ -53,7 +54,7 @@
                 </div>
                 <small>{{ post.created }}</small>
                 <div class="post-comment-create">
-                    <form method="POST" action="/posts/comment_add/">
+                    <form method="POST" action="{% url 'posts:comment_add' %}">
                         {% csrf_token %}
                         <input type="hidden" name="post" value="{{ post.id }}">
                         {{ comment_form.content }}
