@@ -27,8 +27,13 @@ def comment_add(request):
         comment.user = request.user
         comment.save()
 
-        url = reverse("posts:feeds") + f"#post-{comment.post.id}"
-        return HttpResponseRedirect(url)
+        if request.GET.get("next"):
+            url_next = request.GET.get("next")
+
+        else:
+            url_next = reverse("posts:feeds") + f"#post-{comment.post.id}"
+
+        return HttpResponseRedirect(url_next)
 
 @require_POST
 def comment_delete(request, comment_id):
@@ -84,3 +89,12 @@ def tags(request, tag_name):
         "posts": posts,
     }
     return render(request, 'posts/tags.html', context)
+
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    comment_form = CommentForm()
+    context = {
+        "post": post,
+        "comment_form": comment_form,
+    }
+    return render(request, "posts/post_detail.html", context)
