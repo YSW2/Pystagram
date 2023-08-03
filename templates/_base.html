@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>YSWPystagram</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div id="wrap">
+        {% block base_content %}{% endblock %}
+    </div>
+</body>
+</html>

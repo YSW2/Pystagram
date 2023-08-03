@@ -12,6 +12,9 @@ class Post(models.Model):
     created = models.DateTimeField("생성일시", auto_now_add=True)
     tags = models.ManyToManyField("posts.HashTag", verbose_name='해시태그 목록', blank=True)
 
+    def __str__(self):
+        return f"{self.user.username}의 Post(id: {self.id}"
+
 class PostImage(models.Model):
     post = models.ForeignKey(
         Post,
