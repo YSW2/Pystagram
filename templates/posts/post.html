@@ -1,9 +1,23 @@
 <article id="post-{{ post.id }}" class="post">
     <header class="post-header">
-        {% if post.user.profile_image %}
-            <img src="{{ post.user.profile_image.url }}">
+        <a href="{% url 'users:profile' user_id=post.user.id %}">
+            {% if post.user.profile_image %}
+                <img src="{{ post.user.profile_image.url }}">
+            {% endif %}
+            <span>{{ post.user.username }}</span>
+        </a>
+        {% if user != post.user %}
+            <form action="{% url 'users:follow' user_id=post.user.id %}?next={{ action_redirect_url }}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">
+                    {% if post.user in user.following.all %}
+                        Unfollow
+                    {% else %}
+                        Follow
+                    {% endif %}
+                </button>
+            </form>
         {% endif %}
-        <span>{{ post.user.username }}</span>
     </header>
     <div class="post-images splide">
         <div class="splide__track">

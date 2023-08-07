@@ -69,6 +69,7 @@ body {
   border-radius: 3px;
   margin-right: 10px;
 }
+
 .navbar .btn {
   position: absolute;
   right: 20px;
@@ -506,13 +507,24 @@ article.post header.post-header {
 }
 article.post header.post-header img {
   height: 32px;
+  width: 32px;
   border-radius: 50%;
   border: 1px solid #eee;
   box-sizing: border-box;
   margin-right: 10px;
+  object-fit: cover;
+  object-position: center center;
+}
+article.post header.post-header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 article.post header.post-header span {
   font-weight: bold;
+}
+article.post header.post-header form {
+  margin-left: auto;
 }
 article.post .post-images img {
   width: 100%;
@@ -1246,6 +1258,118 @@ input:-webkit-autofill:active {
 
 .tags-header {
   margin-bottom: 10px;
+}
+
+/* 스타일 시트 파일(style.css)을 수정합니다. */
+/* 스타일 시트 파일(style.css)을 수정합니다. */
+#profile {
+  text-align: center;
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  /* 이미지를 왼쪽에 배치하도록 설정합니다 */
+  flex-direction: row;
+}
+
+.info img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px; /* 이미지와 텍스트 간격을 조절합니다 */
+  object-fit: cover;
+  object-position: center center;
+}
+
+.info-texts {
+  text-align: left; /* 텍스트를 왼쪽에 배치하도록 설정합니다 */
+}
+
+.info-texts h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.counts {
+  margin-top: 5px;
+}
+
+.counts dl {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.counts dt, .counts dd {
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.counts dt {
+  color: #999;
+}
+
+.counts dd {
+  font-weight: bold;
+}
+
+.info-texts p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* 스타일 시트 파일(style.css)을 수정합니다. */
+.relationship {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* 각 팔로워 항목 사이의 간격을 조절합니다 */
+}
+
+.relationships h3 {
+  font-weight: bold; /* 텍스트를 굵은 스타일로 설정합니다 */
+  text-align: left; /* 텍스트를 왼쪽에 배치합니다 */
+  margin-bottom: 10px; /* 아래 여백을 조절합니다 */
+}
+
+.relationship a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.relationship img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  margin-right: 10px;
+}
+
+.relationship-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.relationship-info span {
+  font-size: 0.9rem;
+  margin: 2px 0;
+  text-align: left; /* <span> 요소를 왼쪽으로 정렬합니다 */
+}
+
+/* 날짜 포맷을 적용할 경우 다음과 같이 사용하세요 */
+.relationship-info .date {
+  font-size: 0.8rem;
+  color: #777;
 }
 
 /*# sourceMappingURL=style.css.map */
